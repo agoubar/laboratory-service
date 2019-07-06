@@ -16,6 +16,9 @@ public class ArtifactVersion extends CustomPanacheEntity {
     @JsonbTransient
     public Artifact artifact;
 
+    @OneToMany(mappedBy = "artifactVersion", cascade = CascadeType.ALL)
+    public List<ArtifactInstance> artifactInstances;
+
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "artifact_framework",

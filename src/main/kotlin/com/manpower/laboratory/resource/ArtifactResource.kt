@@ -18,9 +18,6 @@ import javax.persistence.EntityManager
 @Consumes(MediaType.APPLICATION_JSON)
 class ArtifactResource {
 
-    @Inject
-    var em: EntityManager? = null
-
     @GET
     fun list() = Artifact.listAll<Artifact>()
 
@@ -35,13 +32,4 @@ class ArtifactResource {
         return Response.created(URI("/artifacts/${artifact.id}")).build()
     }
 
-    // ------------------- init for dev ---------------------------
-    @GET
-    @Path("/init")
-    @Transactional
-    fun init() {
-        var artifact = Artifact("laboratory", "com.manpower.laboratory")
-        artifact.versions = listOf(ArtifactVersion("1.0.0-SNAPSHOT"))
-        artifact.persist()
-    }
 }
