@@ -1,6 +1,7 @@
 package com.manpower.laboratory.resource
 
 import com.manpower.laboratory.exception.ResourceNotFoundException
+import com.manpower.laboratory.model.entity.MiddlewareInstance
 import com.manpower.laboratory.model.entity.Server
 import java.net.URI
 import javax.inject.Inject
@@ -22,6 +23,14 @@ class ServerResource {
     @GET
     @Path("/{id}")
     fun get(@PathParam("id") id: Long) = Server.findById<Server>(id) ?: throw ResourceNotFoundException()
+
+
+    @GET
+    @Path("/{id}/middlewares")
+    fun getMiddlewares(@PathParam("id") id: Long): List<MiddlewareInstance> {
+        val server = Server.findById<Server>(id) ?: throw ResourceNotFoundException()
+        return MiddlewareInstance.list<MiddlewareInstance>("server", server)
+    }
 
     @POST
     @Transactional

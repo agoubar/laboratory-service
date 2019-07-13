@@ -43,3 +43,20 @@ INSERT INTO public.server (id, ip, name, os_version_id) VALUES (3, '10.0.32.84',
 INSERT INTO public.artifact_instance (id, environmenttype, artifact_version_id, server_id) VALUES (1, 'PROD', 1, 1);
 INSERT INTO public.artifact_instance (id, environmenttype, artifact_version_id, server_id) VALUES (2, 'PROD', 1, 2);
 INSERT INTO public.artifact_instance (id, environmenttype, artifact_version_id, server_id) VALUES (3, 'INT', 2, 3);
+
+-- middleware
+
+INSERT INTO public.middleware (id, code, name) VALUES (1, 'JAVA', 'Java');
+INSERT INTO public.middleware (id, code, name) VALUES (2, 'HTTP_SERVER', 'HTTP Server');
+
+-- middleware_version
+
+INSERT INTO public.middleware_version (id, editor, number, middleware_id) VALUES (1, 'Oracle', '1.8.123', 1);
+INSERT INTO public.middleware_version (id, editor, number, middleware_id) VALUES (2, 'Amazon Corretto', '11.0.1', 1);
+INSERT INTO public.middleware_version (id, editor, number, middleware_id) VALUES (3, 'Apache', '2.2', 2);
+INSERT INTO public.middleware_version (id, editor, number, middleware_id) VALUES (4, 'Apache', '2.4', 2);
+
+-- middleware_instance
+
+INSERT INTO public.middleware_instance (id, middleware_version_id, server_id) VALUES (1, 2, 1);
+INSERT INTO public.middleware_instance (id, middleware_version_id, server_id) VALUES (2, 3, 1);

@@ -16,6 +16,11 @@ public class Server extends CustomPanacheEntity {
     public OSVersion osVersion;
 
     @OneToMany(mappedBy = "server", cascade = CascadeType.ALL)
+    @JsonbTransient
     public List<ArtifactInstance> artifactInstances;
+
+    @OneToMany(mappedBy = "server", cascade = CascadeType.ALL)
+    @JsonbTransient
+    public List<MiddlewareInstance> middlewareInstances;
 
 }
