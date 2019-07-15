@@ -23,4 +23,8 @@ public class Server extends CustomPanacheEntity {
     @JsonbTransient
     public List<MiddlewareInstance> middlewareInstances;
 
+    @OneToMany(mappedBy = "server", cascade = CascadeType.ALL)
+    @JsonbTransient
+    public List<DatastoreInstance> datastoreInstances;
+
 }

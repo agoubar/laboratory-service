@@ -13,7 +13,6 @@ public class ArtifactInstance extends CustomPanacheEntity {
 
     @ManyToOne
     @JoinColumn(name="artifact_version_id", nullable=false)
-    @JsonbTransient
     public ArtifactVersion artifactVersion;
 
     @ManyToOne

@@ -51,12 +51,29 @@ INSERT INTO public.middleware (id, code, name) VALUES (2, 'HTTP_SERVER', 'HTTP S
 
 -- middleware_version
 
-INSERT INTO public.middleware_version (id, editor, number, middleware_id) VALUES (1, 'Oracle', '1.8.123', 1);
-INSERT INTO public.middleware_version (id, editor, number, middleware_id) VALUES (2, 'Amazon Corretto', '11.0.1', 1);
-INSERT INTO public.middleware_version (id, editor, number, middleware_id) VALUES (3, 'Apache', '2.2', 2);
-INSERT INTO public.middleware_version (id, editor, number, middleware_id) VALUES (4, 'Apache', '2.4', 2);
+INSERT INTO public.middleware_version (id, editor, number, middleware_id, end_of_support) VALUES (1, 'Oracle', '1.8.123', 1, '2018-01-01');
+INSERT INTO public.middleware_version (id, editor, number, middleware_id, end_of_support) VALUES (2, 'Amazon Corretto', '11.0.1', 1, '2023-01-01');
+INSERT INTO public.middleware_version (id, editor, number, middleware_id, end_of_support) VALUES (3, 'Apache', '2.2', 2, '2015-01-01');
+INSERT INTO public.middleware_version (id, editor, number, middleware_id, end_of_support) VALUES (4, 'Apache', '2.4', 2, '2020-01-01');
 
 -- middleware_instance
 
 INSERT INTO public.middleware_instance (id, middleware_version_id, server_id) VALUES (1, 2, 1);
 INSERT INTO public.middleware_instance (id, middleware_version_id, server_id) VALUES (2, 3, 1);
+
+-- datastore
+
+INSERT INTO public.datastore (id, name, type) VALUES (1, 'DB2', 'DATABASE');
+INSERT INTO public.datastore (id, name, type) VALUES (2, 'PostgreSQL', 'DATABASE');
+INSERT INTO public.datastore (id, name, type) VALUES (3, 'RabbitMQ', 'MESSAGING');
+
+-- datastore_version
+
+INSERT INTO public.datastore_version (id, number, datastore_id) VALUES (1, '11.1.4', 1);
+INSERT INTO public.datastore_version (id, number, datastore_id) VALUES (2, '9', 2);
+INSERT INTO public.datastore_version (id, number, datastore_id) VALUES (3, '2', 3);
+
+-- datastore_instance
+
+INSERT INTO public.datastore_instance (id, datastore_version_id, server_id) VALUES (1, 1, 3);
+INSERT INTO public.datastore_instance (id, datastore_version_id, server_id) VALUES (2, 3, 3);

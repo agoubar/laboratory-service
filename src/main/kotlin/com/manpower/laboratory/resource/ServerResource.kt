@@ -1,6 +1,8 @@
 package com.manpower.laboratory.resource
 
 import com.manpower.laboratory.exception.ResourceNotFoundException
+import com.manpower.laboratory.model.entity.ArtifactInstance
+import com.manpower.laboratory.model.entity.DatastoreInstance
 import com.manpower.laboratory.model.entity.MiddlewareInstance
 import com.manpower.laboratory.model.entity.Server
 import java.net.URI
@@ -29,7 +31,21 @@ class ServerResource {
     @Path("/{id}/middlewares")
     fun getMiddlewares(@PathParam("id") id: Long): List<MiddlewareInstance> {
         val server = Server.findById<Server>(id) ?: throw ResourceNotFoundException()
-        return MiddlewareInstance.list<MiddlewareInstance>("server", server)
+        return MiddlewareInstance.list("server", server)
+    }
+
+    @GET
+    @Path("/{id}/artifacts")
+    fun getArtifacts(@PathParam("id") id: Long): List<ArtifactInstance> {
+        val server = Server.findById<Server>(id) ?: throw ResourceNotFoundException()
+        return ArtifactInstance.list("server", server)
+    }
+    
+    @GET
+    @Path("/{id}/datastores")
+    fun getDatastores(@PathParam("id") id: Long): List<DatastoreInstance> {
+        val server = Server.findById<Server>(id) ?: throw ResourceNotFoundException()
+        return DatastoreInstance.list("server", server)
     }
 
     @POST

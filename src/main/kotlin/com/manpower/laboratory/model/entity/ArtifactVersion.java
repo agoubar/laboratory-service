@@ -13,10 +13,10 @@ public class ArtifactVersion extends CustomPanacheEntity {
 
     @ManyToOne
     @JoinColumn(name="artifact_id", nullable=false)
-    @JsonbTransient
     public Artifact artifact;
 
     @OneToMany(mappedBy = "artifactVersion", cascade = CascadeType.ALL)
+    @JsonbTransient
     public List<ArtifactInstance> artifactInstances;
 
     @ManyToMany(cascade = { CascadeType.ALL })

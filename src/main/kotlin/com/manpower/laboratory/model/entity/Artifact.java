@@ -4,6 +4,7 @@ package com.manpower.laboratory.model.entity;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.runtime.annotations.RegisterForReflection;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -17,6 +18,7 @@ public class Artifact extends CustomPanacheEntity {
     public String groupId;
 
     @OneToMany(mappedBy = "artifact", cascade = CascadeType.ALL)
+    @JsonbTransient
     public List<ArtifactVersion> versions;
 
     public Artifact() {
