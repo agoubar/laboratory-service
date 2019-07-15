@@ -71,7 +71,8 @@ INSERT INTO public.datastore (id, name, type) VALUES (3, 'RabbitMQ', 'MESSAGING'
 
 INSERT INTO public.datastore_version (id, number, datastore_id, end_of_support) VALUES (1, '11.1.4', 1, '2023-01-01');
 INSERT INTO public.datastore_version (id, number, datastore_id, end_of_support) VALUES (2, '9', 2, '2023-01-01');
-INSERT INTO public.datastore_version (id, number, datastore_id, end_of_support) VALUES (3, '2', 3, '2018-01-01');
+INSERT INTO public.datastore_version (id, number, datastore_id, end_of_support) VALUES (3, '2.4', 3, '2018-01-01');
+INSERT INTO public.datastore_version (id, number, datastore_id, end_of_support) VALUES (4, '3.1', 3, '2020-01-01');
 
 -- datastore_instance
 
