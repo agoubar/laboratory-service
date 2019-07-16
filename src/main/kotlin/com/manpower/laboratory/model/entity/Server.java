@@ -10,6 +10,8 @@ public class Server extends CustomPanacheEntity {
 
     public String name;
     public String ip;
+    public int cpu;
+    public int ram;
 
     @ManyToOne
     @JoinColumn(name="os_version_id", nullable=false)

@@ -20,6 +20,7 @@ public class ArtifactVersion extends CustomPanacheEntity {
     public List<ArtifactInstance> artifactInstances;
 
     @ManyToMany(cascade = { CascadeType.ALL })
+    @JsonbTransient
     @JoinTable(
             name = "artifact_framework",
             joinColumns = { @JoinColumn(name = "artifact_version_id") },

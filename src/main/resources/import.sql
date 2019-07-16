@@ -28,15 +28,15 @@ INSERT INTO public.os (id, name) VALUES (2, 'Windows');
 
 -- os_version
 
-INSERT INTO public.os_version (id, number, os_id) VALUES (1, '6', 1);
-INSERT INTO public.os_version (id, number, os_id) VALUES (2, '7', 1);
-INSERT INTO public.os_version (id, number, os_id) VALUES (3, 'XP', 2);
+INSERT INTO public.os_version (id, number, os_id, end_of_support) VALUES (1, '6', 1, '2020-01-01');
+INSERT INTO public.os_version (id, number, os_id, end_of_support) VALUES (2, '7', 1, '2025-01-01');
+INSERT INTO public.os_version (id, number, os_id, end_of_support) VALUES (3, 'XP', 2, '1998-01-01');
 
 -- server
 
-INSERT INTO public.server (id, ip, name, os_version_id) VALUES (1, '10.0.32.83', 'oleniok', 1);
-INSERT INTO public.server (id, ip, name, os_version_id) VALUES (2, '10.0.32.84', 'olekma', 1);
-INSERT INTO public.server (id, ip, name, os_version_id) VALUES (3, '10.0.32.84', 'okhota', 1);
+INSERT INTO public.server (id, cpu, ip, name, ram, os_version_id) VALUES (1, 4, '10.0.32.83', 'oleniok', 2048, 1);
+INSERT INTO public.server (id, cpu, ip, name, ram, os_version_id) VALUES (2, 4, '10.0.32.84', 'olekma', 4096, 2);
+INSERT INTO public.server (id, cpu, ip, name, ram, os_version_id) VALUES (3, 4, '10.0.32.84', 'okhota', 4096, 3);
 
 -- artifact_instance
 
@@ -78,3 +78,10 @@ INSERT INTO public.datastore_version (id, number, datastore_id, end_of_support) 
 
 INSERT INTO public.datastore_instance (id, datastore_version_id, server_id) VALUES (1, 1, 3);
 INSERT INTO public.datastore_instance (id, datastore_version_id, server_id) VALUES (2, 3, 3);
+
+-- artifact_datastore
+
+INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (1, 1);
+INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (1, 2);
+INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (2, 1);
+INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (2, 2);
