@@ -30,4 +30,13 @@ public class ArtifactInstance extends CustomPanacheEntity {
     @JsonbTransient
     public List<DatastoreInstance> datastoreInstances;
 
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "artifact_middleware",
+            joinColumns = { @JoinColumn(name = "artifact_instance_id") },
+            inverseJoinColumns = { @JoinColumn(name = "middleware_instance_id") }
+    )
+    @JsonbTransient
+    public List<MiddlewareInstance> middlewareInstances;
+
 }

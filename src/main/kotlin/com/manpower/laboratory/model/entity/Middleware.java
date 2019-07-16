@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Middleware extends CustomPanacheEntity {
 
-    public String code;
+    public String type;
     public String name;
 
     @OneToMany(mappedBy = "middleware", cascade = CascadeType.ALL)
