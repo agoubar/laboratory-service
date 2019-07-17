@@ -16,7 +16,7 @@ INSERT INTO public.framework (id, name) VALUES (1, 'quarkus');
 -- framework_version
 
 INSERT INTO public.framework_version (id, number, framework_id) VALUES (1, '0.16.1', 1);
-INSERT INTO public.framework_version (id, number, framework_id) VALUES (1, '0.19.1', 1);
+INSERT INTO public.framework_version (id, number, framework_id) VALUES (2, '0.19.1', 1);
 
 -- artifact_framework
 
