@@ -22,12 +22,14 @@ class MiddlewareDto {
 
 class MiddlewareVersionDto {
 
+    var id: Long = 0L
     var number: String
     val editor: String
     var endOfSupport: LocalDate
     var instances: List<MiddlewareInstanceDto>
 
     constructor(middlewareVersion: MiddlewareVersion) {
+        this.id = middlewareVersion.id
         this.number = middlewareVersion.number
         this.endOfSupport = middlewareVersion.endOfSupport
         this.instances = middlewareVersion.middlewareInstances.map { MiddlewareInstanceDto(it) }
