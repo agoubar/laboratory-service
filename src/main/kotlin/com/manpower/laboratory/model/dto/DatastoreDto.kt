@@ -35,12 +35,24 @@ class DatastoreVersionDto {
 class DatastoreInstanceDto {
 
     var id: Long = 0L
-    var server = ServerDto(0L, "uknown", "uknown")
+    var server: ServerDto
     val artifactInstances: Set<ArtifactInstance>
 
     constructor(datastoreInstance: DatastoreInstance) {
         this.id = datastoreInstance.id
-        this.server = ServerDto(datastoreInstance.server.id, datastoreInstance.server.name, datastoreInstance.server.ip)
+        this.server = ServerDto(
+                datastoreInstance.server.id,
+                datastoreInstance.server.name,
+                datastoreInstance.server.ip,
+                OSVersionDto(
+                        datastoreInstance.server.osVersion.number,
+                        datastoreInstance.server.osVersion.endOfSupport,
+                        OSDto(datastoreInstance.server.osVersion.os.name)
+                ),
+                datastoreInstance.server.ram,
+                datastoreInstance.server.cpu
+
+        )
         this.artifactInstances = datastoreInstance.artifactInstances;
     }
 }

@@ -54,7 +54,10 @@ class MiddlewareInstanceDto {
                         middlewareInstance.server.osVersion.number,
                         middlewareInstance.server.osVersion.endOfSupport,
                         OSDto(middlewareInstance.server.osVersion.os.name)
-                )
+                ),
+                middlewareInstance.server.ram,
+                middlewareInstance.server.cpu
+
         )
         this.artifactInstances = middlewareInstance.artifactInstances;
     }
