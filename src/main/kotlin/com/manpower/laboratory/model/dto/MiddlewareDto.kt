@@ -41,12 +41,21 @@ class MiddlewareVersionDto {
 class MiddlewareInstanceDto {
 
     var id: Long = 0L
-    var server = ServerDto(0L, "uknown", "uknown")
+    var server: ServerDto
     val artifactInstances: Set<ArtifactInstance>
 
     constructor(middlewareInstance: MiddlewareInstance) {
         this.id = middlewareInstance.id
-        this.server = ServerDto(middlewareInstance.server.id, middlewareInstance.server.name, middlewareInstance.server.ip)
+        this.server = ServerDto(
+                middlewareInstance.server.id,
+                middlewareInstance.server.name,
+                middlewareInstance.server.ip,
+                OSVersionDto(
+                        middlewareInstance.server.osVersion.number,
+                        middlewareInstance.server.osVersion.endOfSupport,
+                        OSDto(middlewareInstance.server.osVersion.os.name)
+                )
+        )
         this.artifactInstances = middlewareInstance.artifactInstances;
     }
 }
