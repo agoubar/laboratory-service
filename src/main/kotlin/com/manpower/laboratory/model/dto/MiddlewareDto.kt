@@ -38,13 +38,13 @@ class MiddlewareVersionDto {
 }
 
 
-class MiddlewareInstanceDto {
+class MiddlewareInstanceDto(middlewareInstance: MiddlewareInstance) {
 
     var id: Long = 0L
     var server: ServerDto
     val artifactInstances: Set<ArtifactInstance>
 
-    constructor(middlewareInstance: MiddlewareInstance) {
+    init {
         this.id = middlewareInstance.id
         this.server = ServerDto(
                 middlewareInstance.server.id,
@@ -59,6 +59,6 @@ class MiddlewareInstanceDto {
                 middlewareInstance.server.cpu
 
         )
-        this.artifactInstances = middlewareInstance.artifactInstances;
+        this.artifactInstances = middlewareInstance.artifactInstances
     }
 }

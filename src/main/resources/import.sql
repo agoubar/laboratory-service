@@ -2,12 +2,14 @@
 -- artifact
 
 INSERT INTO public.artifact (id, artifactid, groupid) VALUES (1, 'laboratory', 'com.manpower.laboratory');
+INSERT INTO public.artifact (id, artifactid, groupid) VALUES (2, 'laboratory-ui', 'com.manpower.laboratory');
 
 -- artifact_version
 
 INSERT INTO public.artifact_version (id, number, artifact_id) VALUES (1, '1.0.0', 1);
 INSERT INTO public.artifact_version (id, number, artifact_id) VALUES (2, '1.0.2-SNAPSHOT', 1);
 INSERT INTO public.artifact_version (id, number, artifact_id) VALUES (3, '1.0.1', 1);
+INSERT INTO public.artifact_version (id, number, artifact_id) VALUES (4, '1.0.0', 2);
 
 -- framework
 
@@ -47,6 +49,7 @@ INSERT INTO public.artifact_instance (id, environmenttype, artifact_version_id, 
 INSERT INTO public.artifact_instance (id, environmenttype, artifact_version_id, server_id) VALUES (2, 'PROD', 1, 2);
 INSERT INTO public.artifact_instance (id, environmenttype, artifact_version_id, server_id) VALUES (3, 'INT', 2, 3);
 INSERT INTO public.artifact_instance (id, environmenttype, artifact_version_id, server_id) VALUES (4, 'REC', 3, 3);
+INSERT INTO public.artifact_instance (id, environmenttype, artifact_version_id, server_id) VALUES (5, 'PROD', 4, 1);
 
 -- middleware
 
@@ -97,6 +100,7 @@ INSERT INTO public.datastore_version (id, number, datastore_id, end_of_support) 
 
 INSERT INTO public.datastore_instance (id, datastore_version_id, server_id) VALUES (1, 1, 3);
 INSERT INTO public.datastore_instance (id, datastore_version_id, server_id) VALUES (2, 3, 3);
+INSERT INTO public.datastore_instance (id, datastore_version_id, server_id) VALUES (3, 4, 2);
 
 -- artifact_datastore
 
@@ -107,4 +111,4 @@ INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_
 INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (3, 1);
 INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (3, 2);
 INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (4, 1);
-INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (4, 2);
+INSERT INTO public.artifact_datastore (artifact_instance_id, datastore_instance_id) VALUES (4, 3);
